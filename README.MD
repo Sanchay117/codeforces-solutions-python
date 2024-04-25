@@ -1,0 +1,1 @@
+## this repo contains solutions to some problems i solve in codeforces

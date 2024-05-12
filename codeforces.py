@@ -1,19 +1,30 @@
 # contains random code for random problems i do on the fly
 import math
 
-n123 = int(input())
+t = int(input())
 
-for i in range(n123):
-    n,m=list(map(int,input().split()))
-    a=input()
-    b=input()
-    l,r=0,0
-    while l<len(a) and r<len(b):
-        if a[l]==b[r]:
-            l+=1
-            r+=1
+for j in range(t):
+
+    n, k, q = map(int, input().split())
+
+    a = [0] + list(map(int, input().split()))
+    b = [0] + list(map(int, input().split()))
+
+    an = []
+
+    for i in range(q):
+        d = int(input())
+
+        l, r = 0, k
+        while l <= r:
+            mid = (l + r) // 2
+            if a[mid] > d:
+                r = mid - 1
+            else:
+                l = mid + 1
+        if a[r] == d:
+            an.append(str(b[r]))
         else:
-            r+=1
+            an.append(str(int(b[r] + (d - a[r]) * (b[r + 1] - b[r]) / (a[r + 1] - a[r]))))
 
-
-    print(l)
+    print(" ".join(an))

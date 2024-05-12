@@ -25,6 +25,8 @@ for j in range(t):
         if a[r] == d:
             an.append(str(b[r]))
         else:
-            an.append(str(int(b[r] + (d - a[r]) * (b[r + 1] - b[r]) / (a[r + 1] - a[r]))))
+            y=round((a[r+1]-a[r])/(b[r+1]-b[r]),20)
+            x=round(b[r] + ((d-a[r])/y),20)
+            an.append(str(int(x)))
 
     print(" ".join(an))

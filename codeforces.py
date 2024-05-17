@@ -1,32 +1,19 @@
-# contains random code for random problems i do on the fly
-import math
+t=int(input())
 
-t = int(input())
+for i in range(t):
+    n=int(input())
+    chips=list(map(int,input().split()))
 
-for j in range(t):
+    cnt1=0
+    for i in chips:
+        if i==1:
+            cnt1+=1
 
-    n, k, q = map(int, input().split())
-
-    a = [0] + list(map(int, input().split()))
-    b = [0] + list(map(int, input().split()))
-
-    an = []
-
-    for i in range(q):
-        d = int(input())
-
-        l, r = 0, k
-        while l <= r:
-            mid = (l + r) // 2
-            if a[mid] > d:
-                r = mid - 1
-            else:
-                l = mid + 1
-        if a[r] == d:
-            an.append(str(b[r]))
-        else:
-            y=round((a[r+1]-a[r])/(b[r+1]-b[r]),20)
-            x=round(b[r] + ((d-a[r])/y),20)
-            an.append(str(int(x)))
-
-    print(" ".join(an))
+    if cnt1==1 or cnt1==n:
+        print(0)
+    else:
+        ind=0
+        for i in range(n-1):
+            if chips[i]==1 and chips[i+1]==0:
+                ind=i
+                break
